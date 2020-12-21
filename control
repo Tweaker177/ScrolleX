@@ -1,0 +1,9 @@
+Package: com.i0stweak3r.scrollex
+Name: ScrolleX
+Depends: mobilesubstrate, preferenceloader, com.creaturesurvive.libcscolorpicker, ws.hbang.common, firmware (>= 13.0)
+Version: 0.0.2
+Architecture: iphoneos-arm
+Description: The gold standard of system wide scroll bars. Options for bar color, shadow color, shadow shape and size, border color and width, bar width and more. Looks different when touching and controlling it then when simply scrolling. Two looks, one amazing scrollbar. More options coming soon.
+Maintainer: i0s_tweak3r
+Author: i0s_tweak3r
+Section: Tweaks
