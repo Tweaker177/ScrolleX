@@ -95,18 +95,32 @@ return %orig;
     return self;
 }
 
+//trying to add a custom image on the scrollbar. Haven't tried compiling this yet 
 -(void)_layoutFillViewAnimated:(BOOL)arg1 {
     if(kEnabled && kWantsImage) {
         %orig;
         UIImage *myImg = [UIImage imageWithContentsOfFile:@"/Library/Application Support/Snoverlay/XMASSnowflake.png"];
         float imageWidth = self.roundedFillView.frame.size.width;
         float imageHeight = self.roundedFillView.frame.size.height;
-        // Allow flakes to be partially offscreen
+        // Allow images to be partially offscreen
          float imageXPosition = self.frame.size.width * arc4random() / UINT32_MAX;
     imageXPosition -= imageWidth;
         float imageYPosition = self.frame.size.height * 1.5 * arc4random() / UINT32_MAX;
-        // flakes start y position is above upper view bound, add view height
+        // image start y position is above upper view bound, add view height
         imageYPosition += self.frame.size.height;
+	    UIImageView *customImageViewForScrollBar = [[UIImageView alloc] initWithImage:myImg];
+	    customImageViewForScrollBar.frame = CGRectMake(imageXPosition,  imageYPosition, imageWidth, imageHeight);
+	    customImageViewForScrollBar.bounds = customImageViewForScrollBar.frame;
+	     customImageViewForScrollBar.userInterctionEnabled = YES;
+	    if(arg1 && self.roundedFillView) {
+	[self.roundedFillView addSubview: customImageViewForScrollBar];
+		    //Again this isnt tested,just playing around way too late at nighf.. 
+	    }
+    }
+return %orig;
+}
+
+
 
 -(void)layoutSubviews {
     if(!kEnabled) {
