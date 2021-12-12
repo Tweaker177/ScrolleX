@@ -95,7 +95,10 @@ return %orig;
     return self;
 }
 
-//trying to add a custom image on the scrollbar. Haven't tried compiling this yet 
+
+/****
+ //This part is not in the released tweak, never tested or compiled it
+//Trying to add a custom image on the scrollbar. 
 -(void)_layoutFillViewAnimated:(BOOL)arg1 {
     if(kEnabled && kWantsImage) {
         %orig;
@@ -120,7 +123,7 @@ return %orig;
 return %orig;
 }
 
-
+******/
 
 -(void)layoutSubviews {
     if(!kEnabled) {
